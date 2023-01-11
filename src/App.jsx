@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import ListItem from "./ListItem";
+import Button from '@mui/material/Button';
+import AddIcon from '@mui/icons-material/Add';
+import { Fab } from "@mui/material";
 
 function App() {
 
@@ -11,8 +14,6 @@ function App() {
     }
 
     const deleteItems = (id) => {
-
-        console.log("helloo ------------- " + id);
 
         setItemList((prevItems) => {
             return prevItems.filter((elem, index) => {
@@ -37,7 +38,7 @@ function App() {
                     <h1>Todo List</h1>
                     <br />
                     <input type='text' placeholder="Add a Item" onChange={itemEvent} value={item} />
-                    <button onClick={listOfItems}>+</button>
+                    <Fab size='small' className="newBtn" onClick={listOfItems}> <AddIcon /> </Fab>
 
                     <ol>
                         {itemList.map((itemVal, index) => {
